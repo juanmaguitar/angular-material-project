@@ -15,6 +15,7 @@
   "dependencies": {},
   "devDependencies": {
     "browser-sync": "^2.11.1",
+    "buffer-to-vinyl": "^1.1.0",
     "del": "^2.2.0",
     "gulp": "^3.9.1",
     "gulp-angular-filesort": "^1.1.1",
@@ -28,6 +29,7 @@
     "gulp-inject": "^3.0.0",
     "gulp-jshint": "^2.0.0",
     "gulp-load-plugins": "^1.2.0",
+    "gulp-ng-config": "^1.2.1",
     "gulp-notify": "^2.2.0",
     "gulp-plumber": "^1.1.0",
     "gulp-sass": "^2.2.0",
@@ -40,7 +42,6 @@
     "jshint-stylish": "^2.1.0",
     "nib": "^1.1.0",
     "run-sequence": "^1.1.5",
-    "stream-combiner2": "^1.1.1",
     "wiredep": "^3.0.0"
   }
 }

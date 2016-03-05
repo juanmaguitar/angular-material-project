@@ -14,6 +14,19 @@ var plugins = loadPlugins( configPlugins );
 
 var configProject = {
 
+	local: {
+		envConfig : {
+			baseDir: 'http://localhost:3000',
+		}
+  },
+  production: {
+		envConfig : {
+    	baseDir: 'http://juanmaguitar.github.io/angular-material-project'
+		}
+  },
+
+	configJson: 'config.json',
+
 	// dirs path
 	dirBase: 'app',
 	dirDist: 'dist',

@@ -2,13 +2,18 @@
 
 angular.module('users')
      .controller('UserController', [
-        'userService', '$mdSidenav', '$mdBottomSheet', '$log',
+        'userService',
+        '$mdSidenav',
+        '$mdBottomSheet',
+        'envConfig',
+        '$log',
         UserController
      ]);
 
-function UserController( userService, $mdSidenav, $mdBottomSheet ) {
+function UserController( userService, $mdSidenav, $mdBottomSheet, envConfig ) {
 
   var self = this;
+  var baseDir = envConfig.baseDir;
 
   self.selected     = null;
   self.users        = [ ];
@@ -59,10 +64,10 @@ function UserController( userService, $mdSidenav, $mdBottomSheet ) {
      function UserSheetController() {
        this.user = selectedUser;
        this.items = [
-         {  name: 'Phone'     ,   icon:   'phone'     ,     icon_url:   '../svg/phone.svg'     },
-         {  name: 'Twitter'   ,   icon:   'twitter'   ,     icon_url:   '../svg/twitter.svg'   },
-         {  name: 'Google'    ,   icon:   'google'    ,     icon_url:   '../svg/google.svg'    },
-         {  name: 'Hangout'   ,   icon:   'hangouts'  ,     icon_url:   '../svg/hangouts.svg'  }
+         {  name: 'Phone'     ,   icon:   'phone'     ,     icon_url:   baseDir + '/svg/phone.svg'     },
+         {  name: 'Twitter'   ,   icon:   'twitter'   ,     icon_url:   baseDir + '/svg/twitter.svg'   },
+         {  name: 'Google'    ,   icon:   'google'    ,     icon_url:   baseDir + '/svg/google.svg'    },
+         {  name: 'Hangout'   ,   icon:   'hangouts'  ,     icon_url:   baseDir + '/svg/hangouts.svg'  }
        ];
        this.performAction = function(action) {
          $mdBottomSheet.hide();

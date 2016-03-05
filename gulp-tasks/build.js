@@ -8,6 +8,7 @@ module.exports = function( gulp, config, plugins ) {
 
 		runSequence(
 			'clean:dist',
+			'config:production',
 			['templates', 'fonts' , 'images'],
 			'useref',
 			'uncss:minify',
