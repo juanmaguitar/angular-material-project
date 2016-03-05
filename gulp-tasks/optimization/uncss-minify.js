@@ -14,7 +14,7 @@ module.exports = function( gulp, config, plugins ) {
 		var configUncss = { html: htmlFiles };
 
 		gulp.src( distCssFiles )
-			.pipe( uncss(configUncss) )
+			// .pipe( uncss(configUncss) )
 			.pipe( cleanCss() )
 			.pipe( gulp.dest(dirDistCss) );
 

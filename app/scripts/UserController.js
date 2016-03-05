@@ -49,7 +49,7 @@ function UserController( userService, $mdSidenav, $mdBottomSheet ) {
       $mdBottomSheet.show({
         controller: UserSheetController,
         controllerAs: 'vm',
-        templateUrl: '../views/bottomsheet.html',
+        templateUrl: 'views/bottomsheet.html',
         parent: angular.element(document.querySelector('#content'))
       })
 
@@ -59,10 +59,10 @@ function UserController( userService, $mdSidenav, $mdBottomSheet ) {
      function UserSheetController() {
        this.user = selectedUser;
        this.items = [
-         {  name: 'Phone'     ,   icon:   'phone'     ,     icon_url:   '../images/phone.svg'     },
-         {  name: 'Twitter'   ,   icon:   'twitter'   ,     icon_url:   '../images/twitter.svg'   },
-         {  name: 'Google'    ,   icon:   'google'    ,     icon_url:   '../images/google.svg'    },
-         {  name: 'Hangout'   ,   icon:   'hangouts'  ,     icon_url:   '../images/hangouts.svg'  }
+         {  name: 'Phone'     ,   icon:   'phone'     ,     icon_url:   '../svg/phone.svg'     },
+         {  name: 'Twitter'   ,   icon:   'twitter'   ,     icon_url:   '../svg/twitter.svg'   },
+         {  name: 'Google'    ,   icon:   'google'    ,     icon_url:   '../svg/google.svg'    },
+         {  name: 'Hangout'   ,   icon:   'hangouts'  ,     icon_url:   '../svg/hangouts.svg'  }
        ];
        this.performAction = function(action) {
          $mdBottomSheet.hide();

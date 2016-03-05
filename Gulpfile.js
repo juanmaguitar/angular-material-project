@@ -3,6 +3,8 @@
 var gulp = require('gulp');
 var taskLoader = require('gulp-simple-task-loader');
 var loadPlugins = require('gulp-load-plugins');
+var plumber = require('gulp-plumber');
+var notify = require('gulp-notify');
 
 var configPlugins = {
 	// DEBUG: true,
@@ -22,7 +24,8 @@ var configProject = {
 	dirSass: 'app/stylesheets/sass',
 	dirCss: 'app/stylesheets/css',
 	dirTpl: 'app/views',
-	dirImg: 'app/images',
+	dirImg: 'app/img',
+	dirSvg: 'app/svg',
 	dirLib: 'app/lib',
 	fontsPath : 'app/lib/components-font-awesome/fonts/**',
 
@@ -37,13 +40,8 @@ var configProject = {
 	dirDistJs: 'dist/js',
 	dirDistCss: 'dist/css',
 	dirDistImg: 'dist/img',
-	dirDistFonts: 'dist/fonts',
-
-	// files pattern path
-	jsPatternFiles: '/js/**/*.js',
-	stylusPatternFiles: '/stylus/**/*.styl',
-	cssPatternFiles: '/css/**/*.css',
-	tplPatternFiles: '/views/**/*.tpl.html'
+	dirDistSvg: 'dist/svg',
+	dirDistFonts: 'dist/fonts'
 
 }
 
@@ -54,5 +52,21 @@ var configTasks = {
 	plugins: plugins,
 	config: configProject
 }
+
+// https://gist.github.com/floatdrop/8269868
+var _gulpsrc = gulp.src;
+gulp.src = function() {
+    return _gulpsrc.apply(gulp, arguments)
+    .pipe(plumber({
+        errorHandler: function(err) {
+            notify.onError({
+                title:    "Gulp Error",
+                message:  "Error: <%= error.message %>",
+                sound:    "Bottle"
+            })(err);
+            this.emit('end');
+        }
+    }));
+};
 
 taskLoader( configTasks, gulp );

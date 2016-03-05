@@ -6,6 +6,8 @@
 module.exports = function( gulp, config, plugins ) {
 
 	var inject = plugins.inject;
+	var notify = plugins.notify;
+
 	var angularFilesort = plugins.angularFilesort;
 	var dirScripts = config.dirScripts;
 	var dirCss = config.dirCss;
@@ -15,15 +17,25 @@ module.exports = function( gulp, config, plugins ) {
 
 	return function() {
 
-		var sources = gulp.src([ jsFiles, cssFiles ]).pipe( angularFilesort() );
+		var sourcesJs = gulp.src( jsFiles ).pipe( angularFilesort() );
+		var sourcesCss = gulp.src( cssFiles );
+
 		var configInject = {
 			read: false,
 			ignorePath: '/' + dirBase
 		}
 
+		// inject js w/ angularFileSort
 		gulp.src('index.html', { cwd: dirBase })
-			.pipe( inject(sources, configInject) )
-			.pipe( gulp.dest(dirBase) );
+			.pipe( inject(sourcesJs, configInject) )
+			.pipe( gulp.dest(dirBase) )
+			.pipe( notify("js files injected!") );
+
+		// inject css
+		gulp.src('index.html', { cwd: dirBase })
+			.pipe( inject(sourcesCss, configInject) )
+			.pipe( gulp.dest(dirBase) )
+			.pipe( notify("css files injected!") );
 
 	};
 

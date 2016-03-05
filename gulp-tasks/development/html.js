@@ -9,9 +9,6 @@ module.exports = function( gulp, config, plugins ) {
 	return function()  {
 
 		return gulp.src('./app/**/*.html')
-			.on('error', function(err) {
-				console.log(err);
-			})
 			.pipe( browserSync.stream() );
 
 	};

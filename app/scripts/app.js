@@ -1,13 +1,19 @@
 'use strict';
 
-angular.module('myApp',['ngMaterial', 'ngMdIcons', 'users'])
+angular.module('myApp',[
+		'ngMaterial',
+		'ngMdIcons',
+		'users',
+		'templates' // cached templates w/ gulp task
+	])
 	.config(function($mdIconProvider, $mdThemingProvider){
-		$mdIconProvider
-			.defaultIconSet('../images/avatars.svg', 128)
-			.icon('share', '../images/share-option.svg', 24)
 
-			$mdThemingProvider.theme('default')
-				.primaryPalette('brown')
-				.accentPalette('red')
+		$mdIconProvider
+			.defaultIconSet('../svg/avatars.svg', 128)
+			.icon('share', '../svg/share-option.svg', 24);
+
+		$mdThemingProvider.theme('default')
+			.primaryPalette('brown')
+			.accentPalette('red');
 
 });

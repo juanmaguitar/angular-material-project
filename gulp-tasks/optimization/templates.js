@@ -5,7 +5,8 @@ module.exports = function( gulp, config, plugins ) {
 	var templateCache = plugins.angularTemplatecache;
 
 	var dirTpl = config.dirTpl;
-	var tplFiles = dirTpl + '/**/*.tpl.html'
+	//var tplFiles = dirTpl + '/**/*.[tpl.|]html';
+	var tplFiles = dirTpl + '/**/*.+(tpl.html|html|htm)';
 
 	var dirScripts = config.dirScripts;
 
@@ -15,7 +16,7 @@ module.exports = function( gulp, config, plugins ) {
 
 		var configTplCache = {
 			root: 'views/',
-			module: 'blog.templates',
+			module: 'templates',
 			standalone: true,
 			templateHeader : TEMPLATE_HEADER
 		};
