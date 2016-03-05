@@ -6,10 +6,8 @@ module.exports = function( gulp, config, plugins ) {
 
 	return function() {
 
-		runSequence(['inject', 'wiredep', 'server', 'watch'])
+		runSequence(['stylus', 'inject', 'wiredep', 'server', 'watch'])
 
 	};
-
-
 
 };

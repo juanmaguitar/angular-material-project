@@ -7,12 +7,12 @@ module.exports = function( gulp, config, plugins ) {
 
 	var dirBase = config.dirBase;
 	var dirScripts = config.dirScripts;
-	var dirSass = config.dirSass;
+	var dirStylus = config.dirStylus;
 
 	return function()  {
 
 			gulp.watch([ dirBase+'/**/*.html' ],['html']);
-			gulp.watch([ dirSass+'/**/*.sass'],['sass']);
+			gulp.watch([ dirStylus+'/**/*.styl'],['stylus']);
 			gulp.watch([ dirScripts+'/**/*.js'],['jshint']);
 			gulp.watch(['./bower.json'],['wiredep']);
 

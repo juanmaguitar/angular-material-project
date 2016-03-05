@@ -11,15 +11,16 @@ module.exports = function( gulp, config, plugins ) {
 	var dirCss = config.dirCss;
 	var sassFiles = dirSass + '/**/*.sass';
 
-	return function( ) {
+	return function() {
 
-		gulp.src( sassFiles )
-			.pipe( sass() )
+		var sassConfig = {
+			errLogToConsole: true
+		};
+
+		return gulp.src( sassFiles )
+			.pipe( sass(sassConfig) )
 			.pipe( gulp.dest(dirCss) )
-			.on('error', function(err) {
-				console.log(err);
-			})
-			.pipe( browserSync.stream() );
+			.pipe( browserSync.stream() )
 
 	};
 

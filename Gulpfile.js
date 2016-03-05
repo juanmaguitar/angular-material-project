@@ -5,7 +5,7 @@ var taskLoader = require('gulp-simple-task-loader');
 var loadPlugins = require('gulp-load-plugins');
 
 var configPlugins = {
-	//DEBUG: true,
+	// DEBUG: true,
 	pattern: ['gulp-*', 'gulp.*', '[a-z]*'],
 }
 var plugins = loadPlugins( configPlugins );
